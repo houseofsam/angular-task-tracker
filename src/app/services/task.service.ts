@@ -14,6 +14,12 @@ export class TaskService {
   constructor(private http:HttpClient) { }
 
   getTasks(): Observable<Task[]> {
-    return this.http.get<Task[]>(this.apiUrl); //4 get request but make sure to declare type
+    return this.http.get<Task[]>(this.apiUrl); //4 get request but make sure to declare type <Task[]>
+  }
+
+  // will return an Observable... declare with TS
+  deleteTask(task: Task): Observable<Task> {
+    const url = `${this.apiUrl}/${task.id}`;
+    return this.http.delete<Task>(url);
   }
 }
