@@ -1,15 +1,34 @@
-<form class="add-form">
+<form class="add-form" (ngSubmit)="onSubmit()" >
   <div class="form-control">
     <label for="text">Task</label>
-    <input type="text" name="text" placeholder="Add Task" />
+    <input
+      type="text"
+      name="text"
+      [(ngModel)]="text"
+      placeholder="Add Task"
+    />
+    <!-- Square Brackets are for input -->
+    <!-- Parenthesis are for Event (=output) -->
+    <!-- 2 way data binding so we use both for ngModel form data-binding -->
   </div>
   <div class="form-control">
     <label for="day">Day & Time</label>
-    <input type="text" name="day" placeholder="Add Day & Time" />
+    <input
+      type="text"
+      name="day"
+      [(ngModel)]="day"
+      placeholder="Add Day & Time"
+    />
   </div>
   <div class="form-control form-control-check">
     <label for="reminder">Set Reminder</label>
-    <input type="checkbox" name="reminder" id="reminder" />
+    <input
+      type="checkbox"
+      name="reminder"
+      [(ngModel)]="reminder"
+      id="reminder"
+    />
   </div>
-  <input type="submit" value="Save Task" class="btn btn-block">
+  {{ text }}
+  <input type="submit" value="Save Task" class="btn btn-block" />
 </form>
